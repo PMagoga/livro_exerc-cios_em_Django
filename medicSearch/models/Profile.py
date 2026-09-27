@@ -8,6 +8,10 @@ class Profile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     token = models.CharField(max_length=255, null=True, blank=True)
 
+    favorites = models.ManyToManyField(User, related_name='favorites')
+    specialties = models.ManyToManyField(User, related_name='specialties')
+    addresses = models.ManyToManyField(User, related_name='addresses')
+
     def __str__(self):
         return f'{self.user.username}'
 
