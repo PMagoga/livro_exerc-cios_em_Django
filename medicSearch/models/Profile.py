@@ -7,7 +7,8 @@ class Profile(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     token = models.CharField(max_length=255, null=True, blank=True)
-
+    # linhas adicionadas para habilitar o upload de imagens
+    image = models.ImageField(null=True, blank=True)
     favorites = models.ManyToManyField(User, related_name='favorites')
     specialties = models.ManyToManyField(User, related_name='specialties')
     addresses = models.ManyToManyField(User, related_name='addresses')
